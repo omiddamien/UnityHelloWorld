@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
         {
             Shoot();
         }
-
+        transform.rotation = Quaternion.Euler(0, 0, 0);
 
         if (Input.GetKey(KeyCode.D))
         {

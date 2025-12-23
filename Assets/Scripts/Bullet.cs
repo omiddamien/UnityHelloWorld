@@ -21,6 +21,8 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             Destroy(collision.gameObject);
+            GameObject.Find("Manager").GetComponent<Manager>().score += 1;
+
         }
         Destroy(this.gameObject);
 
