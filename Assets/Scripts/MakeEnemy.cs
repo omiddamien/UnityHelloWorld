@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class MakeEnemy : MonoBehaviour
 {
-    public GameObject enemyPrefab;
+
+    public GameObject[] enemyPrefabs;
     public float spawnInterval;
     // Start is called before the first frame update
     void Start()
@@ -27,7 +28,8 @@ public class MakeEnemy : MonoBehaviour
     public void CreateEnemy()
     {
         float x = Random.value > 0.5f ? -11f : 11f;
-        GameObject enemy = Instantiate(enemyPrefab, new Vector3(x, 0, 0), Quaternion.identity);
+        int prefabIndex = Random.Range(0, enemyPrefabs.Length);
+        GameObject enemy = Instantiate(enemyPrefabs[prefabIndex], new Vector3(x, 0, 0), Quaternion.identity);
         Enemy enemyScript = enemy.GetComponent<Enemy>();
         if (x == 11f)
         {
