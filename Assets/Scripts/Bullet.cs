@@ -22,6 +22,7 @@ public class Bullet : MonoBehaviour
         {
             Destroy(collision.gameObject);
             GameObject.Find("Manager").GetComponent<Manager>().score += 1;
+            GameObject.Find("Manager").GetComponent<Manager>().Save();
 
         }
         Destroy(this.gameObject);
