@@ -26,15 +26,22 @@ public class Player : MonoBehaviour
         {
             player.transform.position += new Vector3(10 * Time.deltaTime, 0f, 0f);
             player.transform.localScale = new Vector3(-Mathf.Abs(player.transform.localScale.x), player.transform.localScale.y, player.transform.localScale.z);
+            GetComponent<Animator>().SetInteger("Mode", 1);
         }
-        if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeyCode.A))
         {
             player.transform.position -= new Vector3(10 * Time.deltaTime, 0f, 0f);
             player.transform.localScale = new Vector3(Mathf.Abs(player.transform.localScale.x), player.transform.localScale.y, player.transform.localScale.z);
+            GetComponent<Animator>().SetInteger("Mode", 1);
         }
-        if (Input.GetKeyDown(KeyCode.Space))
+        else if (Input.GetKeyDown(KeyCode.Space))
         {
             GetComponent<Rigidbody2D>().AddForce(Vector2.up * 1000f);
+        }
+        else
+        {
+            GetComponent<Animator>().SetInteger("Mode", 0);
+
         }
 
     }
